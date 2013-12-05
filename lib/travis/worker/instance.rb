@@ -41,6 +41,9 @@ module Travis
         @broker_connection = broker_connection
         @config            = config
         @observers         = Array(observers)
+
+        # create the reporter early so it is not created within the `process` callback
+        @reporter = Reporter.new(name, broker_connection.create_channel, broker_connection.create_channel)
       end
 
       def start
@@ -229,10 +232,6 @@ module Travis
         set :ready
       end
       log :error, :as => :debug
-
-      def reporter
-        @reporter ||= Reporter.new(name, broker_connection.create_channel, broker_connection.create_channel)
-      end
 
       def reset_reporter
         reporter.close if @reporter
