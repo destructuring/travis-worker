@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.6'
 
 gem 'travis-build',     :git => 'https://github.com/travis-ci/travis-build'
 gem 'travis-support',   :git => 'https://github.com/travis-ci/travis-support', ref: 'sf-te'
