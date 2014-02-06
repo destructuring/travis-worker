@@ -19,3 +19,4 @@ play/*
 .DS_Store
 bin/*
 .rvmrc
+/vendor/bundle
